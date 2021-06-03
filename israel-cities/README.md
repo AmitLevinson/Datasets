@@ -7,9 +7,17 @@ This documents the code for creating the `muni.csv` file containing the
 long and lat for each city.
 
 The data is from gov.il using their [jurisdiction
-shapefiles](https://www.gov.il/he/departments/guides/info-gis).
+shapefiles](https://www.gov.il/he/departments/guides/info-gis). Since
+each municipality might have several polygon values (changes in borders
+across years), the polygons were combined for each municipality. From
+there I extracted the long & lat values for the centeroid of the
+polygon.
 
-**Locations were not verified, that is the users’ responsibility**
+The `muni.csv` might contain Hebrew words that aren’t properly read. If
+it doesn’t work using Excel or appropriate Unicode, just use the English
+names.
+
+**Locations were not validated, that is the users’ responsibility**
 
 ``` r
 library(sf)
