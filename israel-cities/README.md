@@ -6,6 +6,9 @@ Amit Levinson
 This documents the code for creating the `muni.csv` file containing the
 long and lat for each city.
 
+The data is from gov.il using their [jurisdiction
+shapefiles](https://www.gov.il/he/departments/guides/info-gis).
+
 **Locations were not verified, that is the users’ responsibility**
 
 ``` r
@@ -23,7 +26,7 @@ cities <- list.files("isr-borders", pattern = ".shp$", recursive = TRUE)[230]
 # read it
 cities <- read_sf(paste0("isr-borders/",cities))
 
-# Select relvant columns
+# Select relevant columns
 cities_concise <- cities %>% 
   select(Muni_Heb, Muni_Eng, Machoz, geometry)
 
